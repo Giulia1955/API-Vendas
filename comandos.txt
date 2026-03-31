@@ -1,0 +1,13 @@
+//instalacao typeorm
+
+npm i typeorm@latest
+npm i reflect-metadata
+npm i pg
+
+//configuracoes docker
+docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5433:5432 -d postgres
+docker ps
+//listam os container
+docker ps -a
+docker start postgres
+docker stop postgres

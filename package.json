@@ -1,0 +1,27 @@
+{
+  "name": "web-back-end",
+  "version": "1.0.0",
+  "description": "control sails api to register products, clients and requests",
+  "main": "index.js",
+  "scripts": {
+  "dev": "ts-node-dev --inspect -r tsconfig-paths/register --transpile-only --ignore-watch node_modules API-Vendas/src/shared/http/server.ts",
+  "migration:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d API-Vendas/src/shared/typeorm/data-source.ts"
+},
+  "author": "Giulia_1955",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express-async-errors": "^3.1.1",
+    "pg": "^8.20.0",
+    "reflect-metadata": "^0.2.2",
+    "ts-node-dev": "^2.0.0",
+    "typeorm": "^0.3.28",
+    "typescript": "^6.0.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "tsconfig-paths": "^4.2.0"
+  }
+}
