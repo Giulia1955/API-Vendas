@@ -11,3 +11,11 @@ docker ps
 docker ps -a
 docker start postgres
 docker stop postgres
+
+
+npm i celebrate
+npm i -D @types/joy
+
+
+npm i multer
+npm i -D @types/multer

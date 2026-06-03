@@ -5,11 +5,13 @@ import AppError from '../errors/AppError';
 import { AppDataSource } from '../typeorm/data-source';
 import 'express-async-errors';
 import { errors } from 'celebrate';
+import uploadConfig from "API-Vendas/src/config/upload";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use('/files', express.static(uploadConfig.directory));
 app.use(routes);
 app.use(errors());
 
