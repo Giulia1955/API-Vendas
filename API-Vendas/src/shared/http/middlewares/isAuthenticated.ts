@@ -1,8 +1,6 @@
 import { NextFunction, Response, Request } from "express";
 import { verify } from "jsonwebtoken";
-import authconfig from "API-Vendas/src/config/auth";
-import auth from "API-Vendas/src/config/auth";
-import { config } from "process";
+import authconfig from "@config/auth";
 
 interface ITokenPayload {
     sub: string;
@@ -19,7 +17,7 @@ export default function isAuthenticated(
         throw new Error("Token is missing");
     }
 
-    const [type, token] = authHeader.split(" ");
+    const [, token] = authHeader.split(" ");
     try {
         const decodedToken = verify(token, authconfig.jwt.secret);
         const { sub } = decodedToken as ITokenPayload;

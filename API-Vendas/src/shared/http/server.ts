@@ -5,7 +5,7 @@ import AppError from '../errors/AppError';
 import { AppDataSource } from '../typeorm/data-source';
 import 'express-async-errors';
 import { errors } from 'celebrate';
-import uploadConfig from "API-Vendas/src/config/upload";
+import uploadConfig from "@config/upload";
 
 const app = express();
 

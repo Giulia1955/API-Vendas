@@ -1,9 +1,16 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+// @ts-nocheck
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import OrderProducts from "@modules/orders/typeorm/entities/OrderProducts";
 
 @Entity('products') // O nome da tabela no banco de dados é 'products', nao pode ser o mesmo da classe, e deve ser minusculo e plural
 export default class Product {
     @PrimaryGeneratedColumn('uuid')
     id: string;
+    @OneToMany(
+        () => OrderProducts,
+        orderProducts => orderProducts.product
+    )
+    orders_products: OrderProducts[];
     @Column()
     name: string;
     @Column('decimal')

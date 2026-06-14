@@ -1,7 +1,7 @@
-import AppError from "API-Vendas/src/shared/errors/AppError";
+import AppError from "@shared/errors/AppError";
 import { UsersRepository } from "../typeorm/repositories/UsersRepository";
 import path from "path";
-import uploadconfig from "API-Vendas/src/config/upload";
+import uploadconfig from "@config/upload";
 import fs from "fs";
 import User from "../typeorm/entities/User";    
 

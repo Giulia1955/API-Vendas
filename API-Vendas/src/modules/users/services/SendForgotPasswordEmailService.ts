@@ -1,11 +1,15 @@
-import AppError from "API-Vendas/src/shared/errors/AppError";
+import AppError from "@shared/errors/AppError";
 import { UsersRepository } from "../typeorm/repositories/UsersRepository";
 import { UserTokensRepository } from "../typeorm/repositories/UserTokensRepository";
-import EtherealMail from "API-Vendas/src/config/mail/EtherealMail";
+import EtherealMail from "@config/mail/EtherealMail";
+import path from "path";
+import { link } from "fs";
 
 interface Irequest {
     email: string;
 }
+
+
 
 export default class SendForgotPasswordEmailService {
     public async execute({email}: Irequest): Promise<void>{
@@ -20,10 +24,21 @@ export default class SendForgotPasswordEmailService {
 
         const { token } = await userTokenRepository.createUserToken(user.id);
 
+        const forgotPasswordTemplate = path.resolve(__dirname, "..", "views", "forgot_password.hbs");
         //console.log(`Token de recuperação de senha: ${token}`);
         await EtherealMail.sendMail({
-            to: email,
-            body: `Token de recuperação de senha: ${token}`
+            to: {
+                name: user.name,
+                email: user.email
+            },
+            subject: "Recuperação de senha para API-Vendas",
+            templateData: {
+                file: forgotPasswordTemplate,
+                variables: {
+                    name: user.name,
+                    link: `http://localhost:3333/reset_password?token=${token}` 
+                }
+            }
         });
     }
 }

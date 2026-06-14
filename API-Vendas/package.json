@@ -1,0 +1,50 @@
+{
+  "name": "apivendas",
+  "version": "1.0.0",
+  "description": "control sails api to register products, clients and requests",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --inspect -r tsconfig-paths/register --transpile-only --ignore-watch node_modules ./src/shared/http/server.ts",
+    "typeorm": "ts-node --transpile-only -r tsconfig-paths/register ./node_modules/typeorm/cli-ts-node-commonjs.js",
+    "migration:run": "npm run typeorm -- migration:run -d ./src/shared/typeorm/data-source.ts",
+    "migration:generate": "npm run typeorm -- migration:generate -d ./src/shared/typeorm/data-source.ts"
+  },
+  "author": "Giulia_1955",
+  "license": "ISC",
+  "dependencies": {
+    "@mui/joy": "^5.0.0-beta.52",
+    "@types/multer": "^2.1.0",
+    "celebrate": "^15.0.3",
+    "cors": "^2.8.6",
+    "date-fns": "^4.3.0",
+    "express": "^4.22.2",
+    "express-async-errors": "^3.1.1",
+    "handlebars": "^4.7.9",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.1.1",
+    "nodemailer": "^8.0.9",
+    "pg": "^8.21.0",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^3.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^25.9.1",
+    "@types/nodemailer": "^8.0.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Giulia1955/API-Vendas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Giulia1955/API-Vendas/issues"
+  },
+  "homepage": "https://github.com/Giulia1955/API-Vendas#readme"
+}

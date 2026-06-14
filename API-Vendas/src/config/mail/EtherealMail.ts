@@ -1,46 +1,48 @@
-import nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer';
 import HandlebarsMailTemplate from './HandlebarsMailTemplate';
+import path from 'node:path';
 
-interface ITemplateVariables {
+interface ITemplateVariable{
     [key: string]: string | number;
 }
 
-interface IParseMailTemplate {
-    template: string;   
-    variables: ITemplateVariables;
+interface IParseMailTemplate{
+    file: string;
+    variables: ITemplateVariable;
 }
 
-interface IMailContact {
+interface IMailContact{
     name: string;
     email: string;
 }
 
-interface ISendEmail {
-    to : IMailContact;
+interface ISendMail{
+    to: IMailContact;
     from?: IMailContact;
     subject: string;
     templateData: IParseMailTemplate;
 }
 
-export default class EtherealMail{
-    static async sendMail({to, from, subject, templateData}: ISendEmail): Promise<void>{
-        const account = await nodemailer.createTestAccount();
 
+
+
+export default class EtherealMail{
+    static async sendMail({to, from, subject, templateData} : ISendMail): Promise<void>{
+        const account = await nodemailer.createTestAccount();
         const transporter = nodemailer.createTransport({
             host: account.smtp.host,
             port: account.smtp.port,
-            secure: account.smtp.secure,
             auth: {
                 user: account.user,
                 pass: account.pass
             }
         });
 
-        const mailTemplate = new HandlebarsMailTemplate();
+        const mailTemplate = new HandlebarsMailTemplate()
 
         const message = await transporter.sendMail({
             from: {
-                name: from?.name || "Equipe API-Vendas",
+                name: from?.name || "Equipe API VENDAS",
                 address: from?.email || "equipe_vendas@apivendas.com"
             },
             to: {
@@ -49,10 +51,8 @@ export default class EtherealMail{
             },
             subject,
             html: await mailTemplate.parse(templateData)
-        });     
-        
-
-        console.log('Message sent: %s', message.messageId);
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(message));
+        });
+        console.log("Message sent: %s", message.messageId)
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(message))
     }
 }

@@ -1,9 +1,9 @@
-import User from "API-Vendas/src/modules/users/typeorm/entities/User";
-import { UsersRepository } from "API-Vendas/src/modules/users/typeorm/repositories/UsersRepository";
-import AppError from "API-Vendas/src/shared/errors/AppError";
+import User from "@modules/users/typeorm/entities/User";
+import { UsersRepository } from "@modules/users/typeorm/repositories/UsersRepository";
+import AppError from "@shared/errors/AppError";
 import { hash, compare } from "bcryptjs"; 
 import { sign } from "jsonwebtoken";
-import authconfig from "API-Vendas/src/config/auth";
+import authconfig from "@config/auth";
 
 interface IRequest {
     email: string;

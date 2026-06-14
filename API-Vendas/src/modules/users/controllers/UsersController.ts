@@ -21,7 +21,7 @@ export default class UsersController {
             
             const service = new CreateUserService();
             const user = await service.execute({name, email, password});
-            console.log(req.user.id);            
+            
             return res.json(user);
         } catch (err) {
             next(err);

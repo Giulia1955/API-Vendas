@@ -1,4 +1,4 @@
-import AppError from "API-Vendas/src/shared/errors/AppError";
+import AppError from "@shared/errors/AppError";
 import User from "../typeorm/entities/User";
 import { UsersRepository } from "../typeorm/repositories/UsersRepository";
 import { hash } from "bcryptjs";

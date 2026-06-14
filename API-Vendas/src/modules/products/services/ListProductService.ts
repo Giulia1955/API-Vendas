@@ -1,4 +1,4 @@
-import { AppDataSource } from "API-Vendas/src/shared/typeorm/data-source";
+import { AppDataSource } from "@shared/typeorm/data-source";
 import Product from "../typeorm/entities/Product";
 
 export default class ListProductService {

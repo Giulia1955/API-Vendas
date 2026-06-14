@@ -1,6 +1,6 @@
 import {Repository } from "typeorm";
 import User from "../entities/User";
-import { AppDataSource } from "API-Vendas/src/shared/typeorm/data-source";
+import { AppDataSource } from "@shared/typeorm/data-source";
 
 export class UsersRepository{
     private ormRepository: Repository<User>;

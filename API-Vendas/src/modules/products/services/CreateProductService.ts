@@ -1,6 +1,6 @@
-import { AppDataSource } from "API-Vendas/src/shared/typeorm/data-source";
+import { AppDataSource } from "@shared/typeorm/data-source";
 import Product from "../typeorm/entities/Product";
-import AppError from "API-Vendas/src/shared/errors/AppError";
+import AppError from "@shared/errors/AppError";
 
 interface IRequest {
     name: string;

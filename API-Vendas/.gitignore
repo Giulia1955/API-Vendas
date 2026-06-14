@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+dist/
+build/
+
+# IDEs/Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Uploads and temporary files
+uploads/
+tmp/
+temp/
+
+# Insomnia/Postman exports (optional, kept out for security if they contain sensitive data)
+insomnia_collection.json
+
+# TypeScript
+tsconfig.tsbuildinfo
